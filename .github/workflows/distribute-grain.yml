@@ -24,6 +24,7 @@ jobs:
       - name: Install Packages 🔧
         run: |
           cd $GITHUB_WORKSPACE/calc
+          pwd
           yarn --frozen-lockfile
 
       - name: Load Data into Graph 🔌
