@@ -54,6 +54,7 @@ jobs:
           git commit --allow-empty -m 'Auto-update ledger'
 
       - name: Push Ledger
+        if: "${{ github.event_name == 'schedule' }}"
         run: |
           cd calc
           git push
