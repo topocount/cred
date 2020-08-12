@@ -26,6 +26,9 @@ jobs:
             to add the latest grain distribution to our instance.
             - - - -
             $(cat grain_output.txt)"
+          description="${description//'%'/'%25'}"
+          description="${description//$'\n'/'%0A'}"
+          description="${description//$'\r'/'%0D'}"
           echo "::set-output name=PULL_REQUEST_BODY::$description"
 
       - name: Create commit and PR for ledger changes
