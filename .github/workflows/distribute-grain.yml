@@ -57,4 +57,12 @@ jobs:
           commit-message: update calculated ledger
           title: ${{ env.PULL_REQUEST_TITLE }}
           body: ${{ steps.pr_details.outputs.pr_body }}
-          reviewers: decentralion
+
+  merge-distribution:
+    name: Merge Grain Distribution
+    needs: distribute-grain
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ridedott/merge-me-action@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
