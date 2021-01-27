@@ -1,11 +1,11 @@
-name: Distribute Grain
+name: autopush
 on:
   # new push every 15 minutes
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
-  distribute-grain:
+  auto-push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
