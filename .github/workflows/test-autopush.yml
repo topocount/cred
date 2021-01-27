@@ -1,8 +1,8 @@
 name: autopush
 on:
-  # new push every 15 minutes
+  # new push every 5 minutes
   schedule:
-    - cron: "*/5 * * * *"
+  - cron: "*/5 * * * *"
 
 jobs:
   auto-push:
@@ -35,5 +35,5 @@ jobs:
           git add grain_output.txt
           git commit --allow-empty -m '${{ env.PULL_REQUEST_TITLE }}' -m '${{ steps.pr_details.outputs.pr_body }}'
 
-      - name: Merge changes
+      - name: Push changes
         run: git push
